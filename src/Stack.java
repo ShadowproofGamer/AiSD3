@@ -35,6 +35,13 @@ public class Stack<T> implements IStack<T> {
     public T top() throws EmptyStackException {
         if(isEmpty())
             throw new EmptyStackException();
-        return array[topIndex-1];}
-
+        return array[topIndex-1];
     }
+    //should never throw an exception, but it's needed for compilation
+    public void reverse() throws EmptyStackException, FullStackException {
+        Stack<T> temp = new Stack<>();
+        while(!isEmpty())
+            temp.push(this.pop());
+        this.array = temp.array;
+    }
+}
