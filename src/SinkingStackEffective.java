@@ -1,6 +1,11 @@
 public class SinkingStackEffective<T> extends Stack<T> {
-    private int size;
-
+    private int size = 0;
+    public SinkingStackEffective(int initialSize){
+        super(initialSize);
+    }
+    public SinkingStackEffective(){
+        super();
+    }
     @Override
     public boolean isEmpty() {
         return size==0;
@@ -19,9 +24,10 @@ public class SinkingStackEffective<T> extends Stack<T> {
     public T pop() throws EmptyStackException {
         if (isEmpty())
             throw new EmptyStackException();
-        if (topIndex==0 && !isEmpty()) {
+        else if (topIndex==0) {
             topIndex = array.length;
         }
+        size--;
         return array[--topIndex];
     }
 
