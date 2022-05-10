@@ -1,13 +1,39 @@
 public class Main {
     public static void main(String[] args) {
 
-        //zad124();
+        //zad4();
         //zad3();
-        zad5(41, 3);
-
+        //zad5(11, 3);
+        //zad1();
 
     }
-    public static void zad124(){
+    public static void zad1(){
+        System.out.println("Veloso's Traversable Stack test:");
+        int _n = 6;
+        VTS<Integer> vts =new VTS<>(_n);
+        try{
+            for (int i = 0; i < _n; i++) {
+                vts.push(i);
+            }
+            for (int i = 0; i < _n; i++) {
+                System.out.println(vts.peek());
+                vts.down();
+            }
+            System.out.println("-----------");
+            System.out.println(vts.peek());
+            System.out.println(vts.pop());
+            System.out.println(vts.peek());
+            vts.down();
+            System.out.println(vts.peek());
+            vts.down();
+            System.out.println(vts.peek());
+            System.out.println(vts.pop());
+            System.out.println(vts.peek());
+        }catch (Exception e){
+            System.out.println("Veloso error");
+        }
+    }
+    public static void zad4(){
         System.out.println("Stacks test:");
         int _n = 6;
         Stack<Integer> st1 = new Stack<>(_n);

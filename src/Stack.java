@@ -39,9 +39,16 @@ public class Stack<T> implements IStack<T> {
     }
     //should never throw an exception, but it's needed for compilation
     public void reverse() throws EmptyStackException, FullStackException {
-        Stack<T> temp = new Stack<>();
+        Stack<T> temp1 = new Stack<>();
+        Stack<T> temp2 = new Stack<>();
         while(!isEmpty())
-            temp.push(this.pop());
-        this.array = temp.array;
+            temp1.push(this.pop());
+        while (!temp1.isEmpty()){
+            temp2.push(temp1.pop());
+        }
+        while (!temp2.isEmpty()){
+            push(temp2.pop());
+        }
+        //this.array = temp1.array;
     }
 }
